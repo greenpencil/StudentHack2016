@@ -70,4 +70,51 @@ $(function() {
         }
     });
 
+    var createHuntForm = $("#create-hunt");
+    createHuntForm.find(".confirm").click(function(){
+        $.ajax({
+            method: "PUT",
+            url: api + "puzzles.php",
+            dataType: "json",
+            data: {
+                name: createHuntForm.find(".puzzle-name").val(),
+                description:createHuntForm.find(".description").val(),
+                latitude:createHuntForm.find(".latitude").val(),
+                longitude:createHuntForm.find(".longitude").val()
+            },
+            success: function(data, status, xhr) {
+                if ("error" in data) {
+                    createHuntForm.find(".error").text("Error: " + data.error);
+                }
+                else {
+                    //Ajaxception
+                    $.ajax({
+                        method: "PUT",
+                        url: api + "hunts.php",
+                        dataType: "json",
+                        data: {
+                            name: createHuntForm.find(".hunt-name").val(),
+                            clue1:createHuntForm.find(".clue1").val(),
+                            clue2:createHuntForm.find(".clue2").val(),
+                            clue3:createHuntForm.find(".clue3").val(),
+                            comments:createHuntForm.find(".comments").val()
+                        },
+                        success: function(data, status, xhr) {
+                            if ("error" in data) {
+                                createHuntForm.find(".error").text("Error: " + data.error);
+                            }
+                            else {
+                                createHuntForm.find(".success").text("WEEEEEEE");
+                            }
+                        }
+                    });
+                }
+            }
+        });
+    });
+
+
+
+
+
 });
