@@ -93,7 +93,7 @@ $(function() {
                 longitude:createHuntForm.find(".longitude").val()
             },
             success: function(data, status, xhr) {
-                console.log("first success");
+                console.log(data);
 
                 if ("error" in data) {
                     createHuntForm.find(".error").text("Error: " + data.error);
@@ -112,6 +112,7 @@ $(function() {
                             comments:createHuntForm.find(".comments").val()
                         },
                         success: function(data, status, xhr) {
+                            console.log(data);
                             if ("error" in data) {
                                 createHuntForm.find(".error").text("Error: " + data.error);
                             }
