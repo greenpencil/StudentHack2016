@@ -93,13 +93,15 @@ $(function() {
                 longitude:createHuntForm.find(".longitude").val()
             },
             success: function(data, status, xhr) {
-                console.log(data);
-
+                console.log("caca");
+                console.log("????");
                 if ("error" in data) {
+                    console.log("FKIN ERROR");
                     createHuntForm.find(".error").text("Error: " + data.error);
                 }
                 else {
                     //Ajaxception
+                    console.log("Ajaxception");
                     $.ajax({
                         method: "POST",
                         url: api + "hunts.php",
@@ -112,7 +114,6 @@ $(function() {
                             comments:createHuntForm.find(".comments").val()
                         },
                         success: function(data, status, xhr) {
-                            console.log(data);
                             if ("error" in data) {
                                 createHuntForm.find(".error").text("Error: " + data.error);
                             }
@@ -121,9 +122,22 @@ $(function() {
 
                                 createHuntForm.find(".success").text("WEEEEEEE");
                             }
+                        },
+
+                        error: function(xhr, status, error) {
+
+                            console.log(xhr);
+                            console.log("FUCK");
+
                         }
                     });
                 }
+            },
+            error: function(xhr, status, error) {
+
+                console.log(xhr);
+                console.log("YOLO");
+
             }
         });
     });
