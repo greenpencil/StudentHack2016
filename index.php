@@ -101,9 +101,25 @@
             <input type="text" class="clue3" />
             <label>Clue 3</label>
         </div>
+
         <div class="input-field">
-            <input type="text" class="comments" />
-            <label>Comments</label>
+            <input type="text" class="puzzle-name" />
+            <label>Puzzle name</label>
+        </div>
+
+        <div class="input-field">
+            <input type="text" class="description" />
+            <label>Description</label>
+        </div>
+
+        <div class="input-field">
+            <input type="text" class="latitude" />
+            <label>Latitude</label>
+        </div>
+
+        <div class="input-field">
+            <input type="text" class="longitude" />
+            <label>Longitude</label>
         </div>
         <a class="confirm waves-effect waves-green btn-flat ">Create hunt</a>
     </div>

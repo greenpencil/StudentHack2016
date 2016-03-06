@@ -81,9 +81,9 @@ $(function() {
 
     var createHuntForm = $("#create-hunt");
     createHuntForm.find(".confirm").click(function(){
-        console.log("create initiated");
+        console.log("starting creation");
         $.ajax({
-            method: "PUT",
+            method: "POST",
             url: api + "puzzles.php",
             dataType: "json",
             data: {
@@ -101,7 +101,7 @@ $(function() {
                 else {
                     //Ajaxception
                     $.ajax({
-                        method: "PUT",
+                        method: "POST",
                         url: api + "hunts.php",
                         dataType: "json",
                         data: {
