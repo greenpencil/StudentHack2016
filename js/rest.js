@@ -1,15 +1,24 @@
 var api = "http://localhost/GoDigItREST/";
 
 $(function() {
-    var createUserForm = $("#create-user");
+    var createUserForm = $("#show-register");
     createUserForm.find(".confirm").click(function() {
+        console.log("dasdada");
 
         var username = createUserForm.find(".username").val();
         var email = createUserForm.find(".email").val();
         var password = createUserForm.find(".password").val();
 
-        if (username && email && password) {
-
+        if (!username) {
+            createUserForm.find(".error").text("Please enter a valid username.");
+        }
+        else if (!email) {
+            createUserForm.find(".error").text("Please enter a valid email.");
+        }
+        else if (!password) {
+            createUserForm.find(".error").text("Please enter a valid password.");
+        }
+        else {
             $.ajax({
                 method: "POST",
                 url: api + "users.php",
@@ -20,11 +29,13 @@ $(function() {
                     password: password
                 },
                 success: function(data, status, xhr) {
+                    console.log(data);
                     if ("error" in data) {
                         createUserForm.find(".error").text("Error: " + data.error);
                     }
                     else {
                         createUserForm.find(".success").text("Success! " + data.username);
+                        $("#show-register").closeModal();
                     }
                 }
             });
