@@ -3,8 +3,6 @@ var api = "http://localhost/GoDigItREST/";
 $(function() {
     var createUserForm = $("#show-register");
     createUserForm.find(".confirm").click(function() {
-        console.log("dasdada");
-
         var username = createUserForm.find(".username").val();
         var email = createUserForm.find(".email").val();
         var password = createUserForm.find(".password").val();
@@ -83,6 +81,7 @@ $(function() {
 
     var createHuntForm = $("#create-hunt");
     createHuntForm.find(".confirm").click(function(){
+        console.log("create initiated");
         $.ajax({
             method: "PUT",
             url: api + "puzzles.php",
@@ -94,6 +93,8 @@ $(function() {
                 longitude:createHuntForm.find(".longitude").val()
             },
             success: function(data, status, xhr) {
+                console.log("first success");
+
                 if ("error" in data) {
                     createHuntForm.find(".error").text("Error: " + data.error);
                 }
@@ -115,6 +116,8 @@ $(function() {
                                 createHuntForm.find(".error").text("Error: " + data.error);
                             }
                             else {
+                                console.log("actual success");
+
                                 createHuntForm.find(".success").text("WEEEEEEE");
                             }
                         }

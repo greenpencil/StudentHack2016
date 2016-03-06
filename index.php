@@ -83,6 +83,30 @@
 
 	<hr/>
 	<h5>Local feed</h5>
+
+	<div id="create-hunt">
+	     <div class="input-field">
+            <input type="text" class="hunt-name" />
+            <label>Name</label>
+        </div>
+        <div class="input-field">
+            <input type="text" class="clue1" />
+            <label>Clue 1</label>
+        </div>
+        <div class="input-field">
+            <input type="text" class="clue2" />
+            <label>Clue 2</label>
+        </div>
+        <div class="input-field">
+            <input type="text" class="clue3" />
+            <label>Clue 3</label>
+        </div>
+        <div class="input-field">
+            <input type="text" class="comments" />
+            <label>Comments</label>
+        </div>
+        <a class="confirm waves-effect waves-green btn-flat ">Create hunt</a>
+    </div>
     <!--<iframe src="http://twubs.com/embed/godigit/?messagesPerPage=5&headerBgColor=%231c6485&headerTextColor=%23ffffff" width="350" height="600" frameborder="0"><a href="http://twubs.com/godigit">#godigit</a></iframe>-->
     </body>
 </html>
